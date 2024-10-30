@@ -1,0 +1,36 @@
+* {
+    font-family: cursive;
+}
+.main-spacing {
+    width: 150vh;
+    margin: 10vh auto;
+}
+.flashbox {
+    border: 1vh solid black;
+    text-align: center;
+    padding: 2vh;
+}
+.red-background {
+    background-color: red;
+}
+.green-background {
+    background-color: green;
+}
+#flash-messages {
+    margin: 0 0;
+    color: white;
+    font-weight: 550;
+    font-size: 8vh;
+    font-family: cursive;
+}
+#flash-messages-success {
+    margin: 0 0;
+    color: white;
+    font-weight: 550;
+    font-size: 5vh;
+    font-family: cursive;
+}
+#back-show-users {
+    float: right;
+    margin: 0 27vh 5vh 0;
+}

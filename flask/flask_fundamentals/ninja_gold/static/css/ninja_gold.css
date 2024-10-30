@@ -1,0 +1,96 @@
+* {
+    color: maroon;
+    user-select: none;
+}
+body {
+    padding: 2.5vh 3vh;
+}
+#scoreboard-body {
+    background-color: #C7C7C7;
+}
+#player-gold, #player-name {
+    margin-left: 0.5vh;
+}
+.default-cursor:hover {
+    cursor: default;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.game-over-container {
+    text-align: center;
+    height: 4vh;
+    margin: 0.5vh 0;
+}
+h4 {
+    margin: 0;
+    color: red;
+}
+.game-mechanics {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 5vh 0;
+}
+.game-mechanic {
+    border: 0.25vh solid black;
+    text-align: center;
+    padding: 10vh 5vh;
+    width: 40vh;
+    height: 40vh;
+}
+h1 {
+    margin-bottom: 3vh;
+}
+h2 {
+    font-size: 2vh;
+}
+.find-gold {
+    margin-top: 3vh;
+    width: 20vh;
+    height: 5vh;
+    font-size: 2vh;
+}
+#activities-log {
+    height: 35vh;
+    border: 0.1vh solid black;
+    padding: 1vh;
+    max-height: 35vh;
+    overflow-y: auto;
+}
+.player-name-container {
+    display: flex;
+}
+#play {
+    width: 7vh;
+    height: 1.75rem;
+    margin-left: 0.5vh;
+    vertical-align: top;
+}
+.green-color {
+    color: green;
+}
+.red-color {
+    color: red;
+}
+.bold {
+    font-weight: 550;
+}
+.header-buttons {
+    width: 15vh;
+    height: 100%;
+}
+button {
+    font-size: 1.6vh;
+}
+h5 {
+    text-align: center;
+    font-size: 4vh;
+    color: maroon;
+}
+body {
+    background-color: linen;
+}
+button:disabled {
+    color: grey;
+}

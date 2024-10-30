@@ -1,0 +1,31 @@
+Run the shell and import your User model
+from users_app.models import *
+
+Query: Create 3 new users
+User.objects.create(first_name="Omar", last_name="Rayyan", email_address="omar@axsos.academy", age=20)
+User.objects.create(first_name="Jalal", last_name="Hemo", email_address="jalal@axsos.academy", age=34)
+User.objects.create(first_name="Ali", last_name="Yahya", email_address="ali@axsos.academy", age=21)
+
+Query: Retrieve all the users
+User.objects.all()
+
+Query: Retrieve the last user
+User.objects.last()
+
+Query: Retrieve the first user
+User.objects.first()
+
+Query: Change the user with id=3 so their last name is Pancakes.
+user3 = User.objects.get(id=3)
+user3.last_name = "Pancakes"
+user3.save()
+
+Query: Delete the user with id=2 from the database
+user2 = User.objects.get(id=2)
+user2.delete()
+
+Query: Get all the users, sorted by their first name
+User.objects.all().order_by("first_name")
+
+BONUS Query: Get all the users, sorted by their first name in descending order
+User.objects.all().order_by("-first_name")

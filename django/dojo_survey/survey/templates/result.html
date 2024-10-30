@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Result - Django App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dojo_survey.css' %}">
+</head>
+<body>
+    <form action="/go_back" method="post" id="result-form">
+        {% csrf_token %}
+        <h3>Submitted Info</h3>
+        <br>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name: </td>
+                    <td>{{ name }}</td>
+                </tr>
+                <tr>
+                    <td>Location: </td>
+                    <td>{{ location }}</td>
+                </tr>
+                <tr>
+                    <td>Favorite Language: </td>
+                    <td>{{ favorite_language }}</td>
+                </tr>
+                <tr>
+                    <td>Gender: </td>
+                    <td>{{ gender }}</td>
+                </tr>
+                <tr>
+                    <td>Likes Mansaf: </td>
+                    <td>{{ likesMansaf }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="comment-table">
+            <label class="form-label">Comment: </label>
+            <p id="comment">{{ comment }}</label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="go-back-button">Go Back</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

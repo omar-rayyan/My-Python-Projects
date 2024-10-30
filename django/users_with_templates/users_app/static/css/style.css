@@ -1,0 +1,29 @@
+.separator {
+    height: 0.2vh;
+    background-color: black;
+    margin: 0 5vh;
+}
+.add-user {
+    text-align: center;
+    margin: 3vh auto;
+}
+#add-user-table {
+    text-align: center;
+    margin: 3vh auto;
+    border-spacing: 3vh;
+}
+#add-user-table td {
+    padding: 1vh 0 0 3vh;
+}
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+}
+
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

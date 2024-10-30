@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Grade - Report Card Flask-MySQL App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report_card.css') }}">
+</head>
+<body>
+    <div class="main">
+        <form action="/add_student" method="POST" class="add-students">
+            <div class="page-header-home">
+                <h1 class="user-edit-page-header">Add a New Student</h1>
+                <label class="home-label"><a href="{{ url_for('display_students') }}">Home</a></label>
+            </div>
+            <label>First Name:</label>
+            <input type="text" name="first_name" class="textbox" required>
+            <label>Last Name:</label>
+            <input type="text" name="last_name" class="textbox" required>
+            <label>Year:</label>
+            <input type="number" name="year" class="textbox" required>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <label class="flash-messages">{{message}}</label>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="add-user-buttons">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ url_for('display_students') }}'">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

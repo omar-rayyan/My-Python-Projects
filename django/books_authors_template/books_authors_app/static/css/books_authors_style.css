@@ -1,0 +1,61 @@
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+}
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 20vh;
+    margin: 10vh 0 0 0;
+}
+.add-a-book, .add-an-author {
+    display: inline-block;
+    text-align: center;
+}
+table td {
+    padding: 1vh 0 0 3vh;
+}
+.authors-books-table {
+    width: 70vh;
+}
+.authors-books-add-btn {
+    margin: 3vh 0 0 0;
+}
+h1 {
+    margin: 0 0 3vh 0;
+}
+.main-view-header {
+    display: flex;
+    justify-content: space-between;
+}
+.view-paragraph {
+    display: inline-block;
+}
+.view-paragraph-item {
+    margin: 0 0 0 3vh;
+}
+h5 {
+    text-align: right;
+    margin: 0 2vh 2vh 0;
+}
+.main-view-container {
+    margin: 5vh;
+}
+h3 {
+    margin: 0 0 2vh 0;
+}
+.view-selector {
+    margin: 3vh 2vh 2vh 0;
+    width: 50vh;
+    display: inline-block;
+}
+.authors-books-header-item {
+    margin: 5vh 0 2vh 0;
+}

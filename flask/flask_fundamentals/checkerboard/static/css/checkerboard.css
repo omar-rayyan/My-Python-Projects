@@ -1,0 +1,6 @@
+.boxes {
+    display: grid;
+}
+.box {
+    aspect-ratio: 1;
+}

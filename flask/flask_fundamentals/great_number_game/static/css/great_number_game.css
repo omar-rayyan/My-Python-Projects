@@ -1,0 +1,49 @@
+body {
+    background-color: linen;
+    text-align: center;
+}
+h1, h2 {
+    color: maroon;
+}
+h3 {
+    color: white;
+}
+.lose-header {
+    margin-top: 40%;
+}
+.win-header {
+    margin-top: 20%;
+}
+.main {
+    margin-top: 2vh;
+}
+form {
+    margin-top: 2vh;
+}
+button {
+    margin-top: 1vh;
+}
+.result-container {
+    display: inline-block;
+}
+.incorrect-answer-container {
+    background-color: red;
+    width: 30vh;
+    height: 30vh;
+    border: 0.2vh solid black;
+}
+.correct-answer-container {
+    background-color: green;
+    width: 30vh;
+    height: 30vh;
+    border: 0.2vh solid black;
+}
+#attempts {
+    margin-top: 1vh;
+}
+#user_name {
+    width: 12vh;
+}
+#name-label {
+    color: white;
+}

@@ -1,0 +1,54 @@
+#main-form {
+    border: 0.2vh solid black;
+    padding: 5vh 5vh;
+    width: 70vh;
+    margin: 10vh auto;
+    align-items: center;
+    justify-content: center;
+}
+#result-form {
+    border: 0.2vh solid black;
+    padding: 2vh 2vh 5vh 2vh;
+    width: 45vh;
+    margin: 10vh auto;
+    align-items: center;
+    justify-content: center;
+}
+#flash-messages {
+    color: red;
+    display: block;
+}
+.spacing {
+    display: flex;
+    justify-content: space-between;
+}
+.selection {
+    width: 20vh;
+    text-align: center;
+}
+label{
+    font-size: 2vh;
+}
+#go-back-button {
+    float:right;
+}
+.result-labels {
+    text-align: center;
+}
+table {
+    width: 40vh;
+    margin: 0vh 3vh;
+}
+td {
+    font-size: 2vh;
+}
+p {
+    font-size: 1.5vh;
+    margin-left: 1vh;
+}
+h3 {
+    text-decoration: underline;
+}
+.comment-table {
+    margin: 1vh 3vh 15vh 3vh;
+}

@@ -1,0 +1,34 @@
+.main {
+    margin: 2vh 5vh;
+}
+.login {
+    margin-bottom: 4vh;
+}
+.main-success-page {
+    border: 0.3vh solid black;
+    padding: 5vh 5vh 10vh 5vh;
+    margin: 15vh;
+}
+h2 {
+    margin-bottom: 2vh;
+}
+p {
+    margin-bottom: 5vh;
+}
+.flash-messages {
+    color: red;
+    margin-left: 2vh;
+}
+#logout {
+    float: right;
+}
+#emailMsg {
+    display: inline-block;
+    margin: 0 0 0 2vh;
+}
+.error {
+    color: red;
+}
+.success {
+    color: green;
+}

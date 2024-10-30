@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground Flask App</title>
+    <style>
+        body {
+            background-color: linen;
+        }
+        
+        h1 {
+            color: maroon;
+            text-align: center;
+            margin-top: 10vh;
+        }
+        .boxes {
+            display: grid;
+            grid-template-rows: repeat(auto-fit);
+            grid-template-columns: repeat(auto-fit, minmax(37vh, 1fr));
+            margin: 2vh 0 0 0;
+            place-items: center;
+        }
+        .box {
+            width: 35vh;
+            height: 35vh;
+            display: inline-block;
+            border: 0.5vh solid black;
+            margin: 2vh 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div class="boxes">
+        {% for _ in range(num_of_boxes) %}
+            <div class="box" style="background-color: {{ color_of_boxes }};"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>

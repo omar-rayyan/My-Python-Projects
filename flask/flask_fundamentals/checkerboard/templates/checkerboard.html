@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard Flask App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/checkerboard.css') }}">
+</head>
+<body>
+    <div class="boxes" style="grid-template-rows: repeat({{ num_of_rows }}, 10vh); grid-template-columns: repeat({{ num_of_columns }}, 10vh);">
+        {% for color in colors %}
+        <div class="box" style="background-color: {{ color }};"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>

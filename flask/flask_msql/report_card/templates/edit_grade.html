@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Grade - Report Card Flask-MySQL App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report_card.css') }}">
+</head>
+<body>
+    <div class="main">
+        <form action="/edit_grade" method="POST" class="add-students">
+            <div class="page-header-home">
+                <h1 class="user-edit-page-header">Edit Grade</h1>
+                <label class="home-label"><a href="{{ url_for('display_students') }}">Home</a></label>
+            </div>
+            <label>Course:</label>
+            <input type="text" name="course" class="textbox" value="{{ course }}" required>
+            <div class="mb-3 spacing">
+                <label for="grade" class="form-label">Grade:</label>
+                <select class="form-select selection" name="grade" id="grade" selected="{{ grade }}">
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="C-">C-</option>
+                    <option value="D+">D+</option>
+                    <option value="D">D</option>
+                    <option value="D-">D-</option>
+                    <option value="F">F</option>
+                </select>
+            </div>            
+            <label>Date Graded:</label>
+            <input type="date" name="date_graded" class="textbox" value="{{ date_graded }}" required>
+            <label>Comments:</label>
+            <textarea class="form-control" id="comments" rows="5" name="comments" placeholder="Enter comments here...">{{ comments }}</textarea>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <label class="flash-messages" id="fmessages-add-grade">{{message}}</label>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="add-user-buttons">
+                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ url_for('display_report_card', student_id=student_id) }}'">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.header, .main {
+    border: 0.3vh solid black;
+    margin: 0 auto;
+    text-align: center;
+}
+.header {
+    width: 20%;
+    margin-top: 3vh;
+    padding: 2vh;
+    font-size: 3vh;
+}
+.main {
+    width: 70%;
+    margin-top: 3vh;
+    font-size: 10vh;
+}

@@ -1,0 +1,16 @@
+.fruits {
+    display: grid;
+    grid-template-rows: repeat(1, 65vh);
+    grid-template-columns: repeat(4, minmax(37vh, 1fr));
+    margin: 2vh 0 0 0;
+    text-align: center;
+    justify-content: center;
+    height: 50vh
+}
+.fruit-image {
+    width: 35vh;
+    height: 40vh;
+}
+.fruit-item-name {
+    margin-top: 2vh;
+}

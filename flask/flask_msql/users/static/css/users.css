@@ -1,0 +1,53 @@
+h5 {
+    margin-top: 4vh;
+}
+h1 {
+    margin: 4vh 3vh;
+}
+.main {
+    margin: 0 auto;
+    width: 35%;
+}
+.textbox {
+    width: 70vh;
+    display: block;
+    margin-bottom: 2vh;
+}
+label {
+    display: block;
+}
+button {
+    display: block;
+    text-align: center;
+    margin: 3vh auto;
+}
+.add-user-buttons {
+    text-align: center;
+}
+.user-edit-page-header, .home-label {
+    display: inline-block;
+}
+.page-header-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-label {
+    margin-right: 4vh;
+}
+.bottom-tools-show-user {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+#back-show-users {
+    display: inline-block;
+}
+.show-user-labels {
+    margin-bottom: 3vh;
+    font-size: 3vh;
+}
+#tools-label-show-user {
+    display: inline-block;
+}

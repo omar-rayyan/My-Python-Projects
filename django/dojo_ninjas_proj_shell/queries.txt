@@ -1,0 +1,46 @@
+Query: Create 3 new dojos
+Dojo.objects.create(name="Axsos - Main Branch", city="Ramallah", state="PS")
+Dojo.objects.create(name="Axsos - Nablus Branch", city="Nablus", state="PS")
+Dojo.objects.create(name="Axsos - Jerusalem Branch", city="Jerusalem", state="PS")
+
+Query: Delete the 3 dojos you just created
+dojos = Dojo.objects.all()
+dojos.delete()
+
+Query: Create 3 more dojos
+Dojo.objects.create(name="Axsos - Bethlehem Branch", city="Bethlehem", state="PS")
+Dojo.objects.create(name="Axsos - Hebron Branch", city="Hebron", state="PS")
+Dojo.objects.create(name="Axsos - Jenin Branch", city="Jenin", state="PS")
+
+Query: Create 3 ninjas that belong to the first dojo
+Ninja.objects.create(first_name="Omar", last_name="Rayyan", dojo=1)
+Ninja.objects.create(first_name="Jalal", last_name="Hemo", dojo=1)
+Ninja.objects.create(first_name="Yasser", last_name="Zoubi", dojo=1)
+
+Query: Create 3 ninjas that belong to the second dojo
+Ninja.objects.create(first_name="Zakaria", last_name="Jabarin", dojo=2)
+Ninja.objects.create(first_name="Ali", last_name="Yahya", dojo=2)
+Ninja.objects.create(first_name="Anas", last_name="Zughayyar", dojo=2)
+
+Query: Create 3 ninjas that belong to the third dojo
+Ninja.objects.create(first_name="Nasri", last_name="Ladaa", dojo=3)
+Ninja.objects.create(first_name="Mohammad", last_name="AbuMukh", dojo=3)
+Ninja.objects.create(first_name="Mohammad", last_name="Al-Turk", dojo=3)
+
+Query: Retrieve all the ninjas from the first dojo
+first_dojo = Dojo.objects.first()
+first_dojo.ninjas.all()
+
+Query: Retrieve all the ninjas from the last dojo
+last_dojo = Dojo.objects.last()
+last_dojo.ninjas.all()
+
+Query: Retrieve the last ninja's dojo
+last_ninja = Ninja.objects.last()
+last_ninja.dojo 
+
+Add a new text field called "desc" to your Dojo class
+- Done
+
+Query: Create a new dojo
+Dojo.objects.create(name="Axsos - Gaza Branch", city="Gaza", state="PS", desc="Axsos Academy's branch in Gaza")

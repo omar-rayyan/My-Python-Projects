@@ -1,0 +1,40 @@
+h1 {
+    margin: 4vh 3vh;
+}
+.main {
+    margin: 0 auto;
+    width: 35%;
+}
+.textbox {
+    width: 70vh;
+    display: block;
+    margin-bottom: 2vh;
+}
+label {
+    display: block;
+}
+button {
+    display: block;
+    text-align: center;
+    margin: 3vh auto;
+}
+.add-user-buttons {
+    text-align: center;
+}
+.user-edit-page-header, .home-label {
+    display: inline-block;
+}
+.page-header-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-label {
+    margin-right: 4vh;
+}
+.flash-messages {
+    color: red;
+}
+#fmessages-add-grade {
+    margin-top: 1vh;
+}

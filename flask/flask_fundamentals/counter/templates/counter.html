@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Flask App</title>
+    <style>
+        body {
+            background-color: linen;
+        }
+        .main {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1, h2 {
+            color: maroon;
+            text-align: center;
+            margin-top: 5vh;
+        }
+        button {
+            margin-top: 2vh;
+            align-items: center;
+            padding: 1vh;
+            width: 20vh;
+            font-size: 2vh;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Counter</h1>
+        <h2>Counter: {{ counter }}</h2>
+        <h2>Visits: {{ visits }} times</h2>
+        <form action="/handle_action" method="post">
+            <button type="submit" name="action" value="add2">Counter +2</button>
+            <br>
+            <button type="submit" name="action" value="reset">Reset Counter</button>
+        </form>
+        <br>
+        <form action="/custom_increment" method="post">
+            <h2>Custom Increment</h2>
+            <input type="number" name="increments" min="1" value="1">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
