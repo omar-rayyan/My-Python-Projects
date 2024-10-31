@@ -1,15 +1,24 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
+class DLNode:
+    def __init__(self, val):
+        self.value = val
         self.prev = None
         self.next = None
 
-class DLList:
+class MyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-    def add_to_back(self, data):
-        new_node = Node(data)
+    def get(self, index):
+        runner = self.head
+        count = 0
+        while runner and count != index:
+            runner = runner.next
+            count += 1
+        if not runner:
+            return -1
+        return runner.value
+    def addAtTail(self, val):
+        new_node = DLNode(val)
         if self.head is None:
             self.head = self.tail = new_node
         else:
@@ -17,8 +26,8 @@ class DLList:
             self.tail.next = new_node
             self.tail = new_node
         return self
-    def add_to_front(self, data):
-        new_node = Node(data)
+    def addAtHead(self, val):
+        new_node = DLNode(val)
         if self.head is None:
             self.head = self.tail = new_node
         else:
@@ -26,40 +35,59 @@ class DLList:
             self.head.prev = new_node
             self.head = new_node
         return self
-    def delete(self, data):
-        runner = self.head
-        while runner:
-            if runner.data == data:
-                if runner.prev:
-                    runner.prev.next = runner.next
-                else:
-                    self.head = runner.next
-                if runner.next:
-                    runner.next.prev = runner.prev
-                else:
-                    self.tail = runner.prev
-                return  self
-            runner = runner.next
-    def insertAtPosition(self, data, position):
-        new_node = Node(data)
-        if self.head is None:
-            return new_node
+    def addAtIndex(self, position, val):
+        new_node = DLNode(val)
+        if position > 0 and not self.head:
+            return self
         if position == 0:
-            new_node.next = self.head
-            self.head.prev = new_node
-            return new_node
+            self.addAtHead(val)
+            return self
         runner = self.head
-        count = 1
+        count = 0
         while runner.next and count < position - 1:
             runner = runner.next
             count += 1
+        if runner is None:
+            return self
         new_node.next = runner.next
         new_node.prev = runner
-        if runner.next is not None:
+        if runner.next:
             runner.next.prev = new_node
+        else:
+            self.tail = new_node
         runner.next = new_node
         return self
-    
+    def deleteFromFront(self):
+        node = self.head
+        if not node:
+            return self
+        if not node.next:
+            self.head = None
+            self.tail = None
+            return self
+        second_node = node.next
+        second_node.prev = None
+        self.head = second_node
+        return self
+    def deleteAtIndex(self, position):
+        if position == 0:
+            return self.deleteFromFront()
+        runner = self.head
+        count = 0
+        while runner and count != position:
+            runner = runner.next
+            count += 1
+        if not runner:
+            return self
+        previous_node = runner.prev
+        next_node = runner.next
+        if previous_node:
+            previous_node.next = next_node
+        if next_node:
+            next_node.prev = previous_node
+        else:
+            self.tail = previous_node
+        return self
 
 
 # Questions
