@@ -1,0 +1,34 @@
+body {
+    padding: 5vh;
+}
+#go-to-show {
+    margin: 3vh 0 0 0;
+}
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+    margin: 1vh 0 0 0;
+}
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.header-text-shows {
+    display: flex;
+    justify-content: space-between;
+}
+.header-text-item {
+    display: inline-block;
+}
+.go-back {
+    margin: 0 10vh 0 0;
+}
+#edit-delete {
+    margin: 3vh 0 0 0;
+}
+.show-id {
+    margin: 0 0 4vh 0;
+}
