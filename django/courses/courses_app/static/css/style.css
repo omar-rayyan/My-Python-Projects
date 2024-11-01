@@ -1,0 +1,54 @@
+body {
+    padding: 5vh;
+}
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+    margin: 1vh 0 0 0;
+}
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.header-text-comments {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 2vh 0;
+}
+.header-text-item {
+    display: inline-block;
+}
+.go-back {
+    margin: 0 10vh 0 0;
+}
+.messages {
+    display: block;
+    margin: 2vh 0;
+}
+.red-text {
+    color: red;
+}
+.add-comment-input {
+    display: inline-block;
+    width: 70%;
+}
+.add-comment-form {
+    margin: 4vh 0 0 0;
+}
+.courses-add-btn {
+    float: right;
+    margin: 2vh 0 0 0;
+    background-color: green;
+    border-color: black;
+}
+.courses-add-btn:hover {
+    background-color: white;
+    color: green;
+}
+.add-course-form {
+    width: 40%;
+    margin: 0 0 7vh 0;
+}
