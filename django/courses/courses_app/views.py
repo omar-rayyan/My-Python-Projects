@@ -27,6 +27,13 @@ def add_comment(request):
     return redirect(f'/comments/{course.id}')
 def delete_course(request, id):
     course = Course.objects.get(id=id)
+    context = {
+        'course': course,
+    }
+    request.session['course'] = id
+    return render(request, 'delete_course.html', context)
+def delete_course_confirm(request):
+    course = Course.objects.get(id=int(request.session['course']))
     course.delete()
     return redirect('/')
 def delete_comment(request, id):

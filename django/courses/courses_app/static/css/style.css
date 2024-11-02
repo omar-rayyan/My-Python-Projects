@@ -38,6 +38,27 @@ body {
 .add-comment-form {
     margin: 4vh 0 0 0;
 }
+.delete-course-form {
+    text-align: center;
+}
+.delete-btn {
+    background-color: red;
+    border-color: black;
+    margin: 0 0 0 3vh;
+}
+#delete-course-table {
+    margin: 0 auto;
+    margin: 3vh auto;
+}
+#delete-course-table td {
+    padding: 0 0 0 10vh;
+    font-size: 3vh;
+}
+.delete-btn:hover {
+    background-color: white;
+    border-color: red;
+    color: red;
+}
 .courses-add-btn {
     float: right;
     margin: 2vh 0 0 0;
