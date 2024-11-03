@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3 class="text-center">Thank you for your business!</h3>
+        <div class="alert alert-success text-center" role="alert">
+            We charged your credit card for ${{ request.session.last_item_price }} for {{ request.session.last_quantity_ordered }} {{ request.session.last_item_ordered }}(s)
+        </div>
+        <p class="text-center">You have ordered #{{ request.session.total_quantity_ordered_ever }} items so far and spent ${{ request.session.total_amount_ordered_ever }} with Amadon.com!</p>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
