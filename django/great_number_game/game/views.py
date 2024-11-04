@@ -18,12 +18,24 @@ def guess(request):
     if int(request.POST['guess']) == request.session['random_num']:
         request.session['result'] = True
     elif int(request.POST['guess']) > request.session['random_num']:
-        request.session['result'] = 'Too High!'
+        difference = int(request.POST['guess']) - request.session['random_num']
+        if difference >= 20:
+            request.session['result'] = 'Too High!'
+        elif difference <= 5:
+            request.session['result'] = 'A Little High!'
+        elif difference <= 15:
+            request.session['result'] = 'High!'
         request.session['attempts'] += 1
         if request.session['attempts'] == 10:
             request.session['lost'] = True
     elif int(request.POST['guess']) < request.session['random_num']:
-        request.session['result'] = 'Too Low!'
+        difference = request.session['random_num'] - int(request.POST['guess'])
+        if difference >= 20:
+            request.session['result'] = 'Too Low!'
+        elif difference <= 5:
+            request.session['result'] = 'A Little Low!'
+        elif difference <= 15:
+            request.session['result'] = 'Low!'
         request.session['attempts'] += 1
         if request.session['attempts'] >= 10:
             request.session['lost'] = True

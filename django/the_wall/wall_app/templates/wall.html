@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
+    <title>The Wall - Django App</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-item">CodingDojo Wall</h1>
+        <h3 class="header-item welcome-text">Welcome, {{ request.session.first_name }}!</h3>
+        <h3 class="header-item"><a href="{% url 'logout' %}">Logout</a></h3>
+    </div>
+    <div class="main">
+        <h2>{{ user.first_name }} {{ user.last_name }}'s Wall</h2>
+        <form action="/wall/post_message" method="post" class="add-message-form">
+            {% csrf_token %}
+            {% for message in messages %}    
+                <label class="messages red-text">{{ message }}</label>  
+            {% endfor %}
+            <h5 class="block">Post a message:</h5>
+            <input type="text" class="form-control custom-input add-message-input block" name="text">
+            <button type="submit" class="btn btn-primary block post-btn">Post a message</button>
+        </form>
+        <ul class="wall-messages">
+            {% for message in wall_messages %}
+                <li><p>{{ message.commentor.first_name }} {{ message.commentor.last_name }} - {{ message.created_at }} {% if request.session.user_id == message.commentor.id %} | <a href="{% url 'delete_message' message.id %}">Remove</a>{% endif %}</p><p class="message-content">{{ message.content }}</p>
+                    <ul class="comments">
+                        {% for comment in message.comments.all %}
+                            <li><p>{{ comment.commentor.first_name }} {{ comment.commentor.last_name }} - {{ comment.created_at }} {% if request.session.user_id == comment.commentor.id %} | <a href="{% url 'delete_comment' comment.id %}">Remove</a>{% endif %}</p><p class="message-content">{{ comment.content }}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <form action="/wall/post_comment" method="post" class="add-comment-form">
+                        {% csrf_token %}
+                        {% for error_message in messages %}    
+                            <label class="messages red-text">{{ error_message }}</label>  
+                        {% endfor %}
+                        <h5 class="block">Post a comment:</h5>
+                        <input type="text" class="form-control custom-input add-message-input block" name="text">
+                        <input type="hidden" value="{{ message.id }}" name="message-id">
+                        <button type="submit" class="btn btn-primary block post-btn post-comment">Post a comment</button>
+                    </form>
+                </li>
+                {% empty %}
+                <li>There are no messages on this user's wall yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

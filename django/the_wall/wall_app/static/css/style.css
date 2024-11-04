@@ -1,0 +1,73 @@
+* {
+    padding: 0 0;
+    margin: 0 0;
+}
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+    margin: 1vh 0 0 0;
+}
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.messages {
+    display: block;
+    margin: 2vh 0;
+}
+.post-comment {
+    background-color: green;
+    border-color: black;
+}
+.post-comment:hover {
+    background-color: green;
+    border-color: black;
+}
+.red-text {
+    color: red;
+}
+.add-message-form {
+    margin: 4vh 0 6vh 0;
+}
+.wall-messages {
+    list-style: none;
+}
+.wall-messages li {
+    margin: 0 0 4vh 0;
+}
+.message-content {
+    padding: 0 0 0 4vh;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.3vh solid black;
+    padding: 2vh;
+    text-align: center;
+    align-items: center;
+}
+.header-item {
+    display: inline-block;
+}
+.welcome-text {
+    margin: 0 0 0 80vh;
+}
+.main {
+    padding: 3vh;
+}
+.block {
+    display: block;
+}
+.post-btn {
+    float: right;
+}
+.add-message-input {
+    margin: 0 0 2vh 0;
+}
+.add-comment-form {
+    padding: 0 0 0 8vh;
+    margin: 0 0 6vh 0;
+}

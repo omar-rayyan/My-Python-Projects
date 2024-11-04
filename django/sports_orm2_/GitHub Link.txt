@@ -1,0 +1,1 @@
+https://github.com/omar-rayyan/My-Python-Projects/tree/0a77efbd075085de5e0613b45cafae105d3448ef/django/sports_orm2_

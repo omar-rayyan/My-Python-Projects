@@ -1,0 +1,23 @@
+.main {
+    margin: 2vh 5vh;
+}
+.login {
+    margin: 0 0 4vh 0;
+}
+h2 {
+    margin-bottom: 2vh;
+}
+p {
+    margin-bottom: 5vh;
+}
+.message-error {
+    color: red;
+    margin-left: 2vh;
+}
+.message-success {
+    color: green;
+    margin-left: 2vh;
+}
+#logout {
+    float: right;
+}
