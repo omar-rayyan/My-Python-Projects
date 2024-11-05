@@ -1,0 +1,1 @@
+https://github.com/omar-rayyan/My-Python-Projects/tree/3f84e648edc401f03ec7c23ca364623342ffd80b/django/favorite_books_shell

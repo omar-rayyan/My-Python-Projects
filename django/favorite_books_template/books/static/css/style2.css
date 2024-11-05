@@ -1,0 +1,107 @@
+.main {
+    padding: 5vh;
+    display: flex;
+    gap: 30vh;
+}
+.all_books, .add-book {
+    display: inline-block;
+    margin: 0 0 0 15vh;
+}
+.add-book, .edit-form-buttons {
+    text-align: center;
+}
+.added-by {
+    margin: 0 0 1vh 0;
+}
+.desc-edit {
+    margin: 0 0 3vh 0;
+}
+.desc-view-book {
+    margin: 2vh 0 1vh 0;
+}
+.title-view-book-info {
+    margin: 0 0 2vh 0;
+    font-size: 6vh;
+}
+.book-info {
+    margin: 0 0 0 5vh;
+}
+.view-book-errors {
+    margin: 0 0 2vh 0;
+}
+.header-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15vh;
+}
+.delete {
+    background-color: red;
+    border-color: black;
+    margin: 0 0 0 2vh;
+}
+.delete:hover {
+    background-color: maroon;
+    color: white;
+    border-color: black;
+}
+.book-title-edit {
+    width: 60vh;
+    height: 8vh;
+    font-size: 4vh;
+    margin: 0 0 2vh 0;
+}
+.book-title {
+    font-size: 4vh;
+    text-decoration: underline;
+    color: #80bdff;
+    margin: 0 0 0 0;
+}
+.favorite-label {
+    font-style: italic;
+}
+#add-book-table td {
+    padding: 0 3vh 0 0;
+}
+.custom-input {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #495057;
+    margin: 1vh 0 0 0;
+}
+.custom-input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.messages {
+    display: block;
+    margin: 2vh 0;
+}
+.red-text, .message-error {
+    color: red;
+}
+.books-add-btn {
+    margin: 2vh 0 0 0;
+    background-color: green;
+    border-color: black;
+}
+.books-add-btn:hover {
+    background-color: white;
+    color: green;
+}
+.add-books-form {
+    width: 40%;
+    margin: 0 0 7vh 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.3vh solid black;
+    padding: 2vh 5vh;
+}
+.header-item {
+    display: inline-block;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books Django App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
+</head>
+<body>
+    <div class="main">
+        <form action="{% url 'login' %}" method="post" class="login">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email Address: </label>
+            <input type="text" class="form-control" id="inputEmail" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="inputPassword" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            {% for message in messages %}
+                {% if 'login' in message.tags %}
+                    <label class="message-error">{{ message }}</label>
+                {% endif %}
+            {% endfor %}
+        </form>
+        <form action="{% url 'register' %}" method="post" class="register">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="inputFirstNameR" class="form-label">First Name: </label>
+                <input type="text" class="form-control" id="inputFirstNameR" name="first_name">
+            </div>
+            <div class="mb-3">
+                <label for="inputLastNameR" class="form-label">Last Name: </label>
+                <input type="text" class="form-control" id="inputLastNameR" name="last_name">
+            </div>
+            <div class="mb-3">
+            <label for="inputEmailR" class="form-label">Email Address: </label>
+            <input type="text" class="form-control" id="inputEmailR" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="inputPasswordR" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="inputPasswordR" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="inputPasswordRAgain" class="form-label">Password Confirmation: </label>
+                <input type="password" class="form-control" id="inputPasswordRAgain" name="password-confirmation">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            {% for message in messages %}
+                {% if 'success' in message.tags %}
+                    <label class="message-success">{{ message }}</label>
+                {% else %}
+                    {% if 'register' in message.tags %}
+                        <label class="message-error">{{ message }}</label>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>

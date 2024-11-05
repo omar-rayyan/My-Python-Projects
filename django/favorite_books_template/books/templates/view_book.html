@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books Django App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}?v=2">
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-item">Welcome, {{ request.session.first_name }}!</h1>
+        <div class="header-links">
+            <h3 class="header-item"><a href="{% url 'go_back' %}">Go Back</a></h3>
+            <h3 class="header-item"><a href="{% url 'logout' %}">Logout</a></h3>
+        </div>
+    </div>
+    <div class="main">
+        <div class="book-info">
+            {% if request.session.user_id != book.uploaded_by.id %}
+                <h2 class="title-view-book-info">{{ book.title }}</h2>
+                <h4>Added by: {{ book.uploaded_by.first_name }} {{ book.uploaded_by.last_name }}</h4>
+                <h4>Added on: {{ book.created_at }}</h4>
+                <h4>Last updated on: {{ book.updated_at }}</h4>
+                <h4 class="desc-view-book">Description:</h4>
+                <p>{{ book.description }}</p>
+            {% else %}
+                <form action="{% url 'edit_book' %}" method="post" class="edit-book-form">
+                    {% csrf_token %}
+                    <input type="text" name="title" value="{{ book.title }}" class="book-title-edit">
+                    <h3>Added by: {{ book.uploaded_by.first_name }} {{ book.uploaded_by.last_name }}</h3>
+                    <h3>Added on: {{ book.created_at }}</h3>
+                    <h3>Last updated on: {{ book.updated_at }}</h3>
+                    <h3>Description:</h3>
+                    <textarea class="form-control desc-edit" id="description" rows="5" name="description">{{ book.description }}</textarea>
+                    {% for message in messages %}
+                        <label class="message-error view-book-errors">{{ message }}</label>
+                    {% endfor %}
+                    <input type="hidden" name="action" value="update" id="action-type">
+                    <div class="edit-form-buttons">
+                        <input class="btn-primary btn" type="submit" value="Update">
+                        <button class="btn-primary btn delete" type="submit" onclick="document.getElementById('action-type').value = 'delete'">Delete</button>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+        <div class="book-likes">
+            <h2>Users Who Like This Book</h2>
+            <ul>
+                {% for user in users_who_like_this_book %}
+                    <li>{{ user.first_name }} {{ user.last_name }}</li>
+                    {% empty %}
+                    <li>No user has favorited this book yet.</li>
+                {% endfor %}
+            </ul>
+            {% if not user_likes_book %}
+                <h3><a href="{% url 'favorite_book_view_book' book.id %}">Add to Favorites</a></h3>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
