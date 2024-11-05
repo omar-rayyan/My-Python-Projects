@@ -1,0 +1,15 @@
+1. To get the user who uploaded a book:
+    book = Book.objects.get(id=book_id)
+    user = book.uploaded_by
+
+2. To get the list of books uploaded by a user:
+    user = User.objects.get(id=user_id)
+    uploaded_books = user.books_uploaded.all()
+
+3. To get the list of users who like a book:
+    book = Book.objects.get(id=book_id)
+    users_list = book.users_who_like.all()
+
+4. To get the list of books a user likes:
+    user = User.objects.get(id=user_id)
+    liked_books = user.liked_books.all()
