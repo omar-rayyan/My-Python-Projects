@@ -1,0 +1,28 @@
+.main {
+    margin: 2vh 5vh;
+}
+.login {
+    margin-bottom: 4vh;
+}
+.main-success-page {
+    border: 0.3vh solid black;
+    padding: 5vh 5vh 10vh 5vh;
+    margin: 15vh;
+}
+h2 {
+    margin-bottom: 2vh;
+}
+p {
+    margin-bottom: 5vh;
+}
+.message-error {
+    color: red;
+    margin-left: 2vh;
+}
+.message-success {
+    color: green;
+    margin-left: 2vh;
+}
+#logout {
+    float: right;
+}

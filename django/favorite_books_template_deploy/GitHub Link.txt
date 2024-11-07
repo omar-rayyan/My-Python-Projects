@@ -1,0 +1,1 @@
+https://github.com/omar-rayyan/My-Python-Projects/tree/b6b340be2fd79e1807719b15165e139be3ba2674/django/favorite_books_template

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books Django App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    {% load custom_filters %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}?v=1">
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-item">Welcome, {{ request.session.first_name }}!</h1>
+        <h3 class="header-item"><a href="{% url 'logout' %}">Logout</a></h3>
+    </div>
+    <div class="main">
+        <div class="add-book">
+            <form action="{% url 'add_book' %}" method="post" class="add-book-form">
+                {% csrf_token %}
+                <h1>Add a new book</h1>
+                <table id="add-book-table">
+                    <tbody>
+                        <tr>
+                            <td><label>Title</label></td>
+                            <td><input type="text" class="form-control custom-input" name="title"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Description</label></td>
+                            <td><textarea class="form-control custom-input" name="description" id="description" rows="5" cols="50"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% for message in messages %}    
+                    <label class="messages red-text">{{ message }}</label>    
+                {% endfor %}
+                <button type="submit" class="btn btn-primary books-add-btn">Add</button>
+            </form>
+        </div>
+        <div class="all-books">
+            <h2>All Books</h2>
+            <ul class="books-list">
+                {% for book in books %}
+                    <li>
+                        <p class="book-title"><a href="{% url 'view_book' book.id %}">{{ book.title }}</a></p>
+                        <p class="added-by">(added by {% if book.uploaded_by.id == request.session.user_id %}you{% else %}{{book.uploaded_by.first_name }} {{book.uploaded_by.last_name }}{% endif %}) </p>
+                        {% if request.session.user_id in user_ids_who_like_books|get_item:book.id %}
+                            <p class="favorite-label">This is one of your favorites!</p>
+                        {% else %}
+                            <p><a href="{% url 'favorite_book_view_all_books' book.id %}">Add to Favorites</a></p>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li>No books were added to the site yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
