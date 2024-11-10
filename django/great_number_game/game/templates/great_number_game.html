@@ -53,7 +53,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for user in request.session.users %}
+            {% for user in request.session.scoreboard %}
             <tr>
                 <td>{{ user.username }}</td>
                 <td>{{ user.score }}</td>

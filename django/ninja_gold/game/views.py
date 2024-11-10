@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from datetime import datetime
+from game.models import User
 import random
 
 def index(request):
@@ -9,10 +10,6 @@ def index(request):
         request.session['moves'] = "N/A"
         request.session['activities'] = []
         request.session['game'] = True
-    if 'scoreboard' not in request.session:
-        request.session['scoreboard'] = []
-    else:
-        request.session['scoreboard'].sort(key=lambda user: user['score'], reverse=True)
     return render(request, 'ninja_gold.html')
 def play(request):
     request.session['name'] = request.POST['name']
@@ -33,16 +30,7 @@ def process_money(request):
     if request.session['moves'] == 15:
         request.session['game'] = False
         username = request.session['name']
-        user_found = False
-        for user in request.session['scoreboard']:
-            if user["username"] == username:
-                if user['score'] < request.session['gold']:
-                    user["score"] = request.session['gold']
-                user_found = True
-                break
-        if user_found == False:
-            request.session['scoreboard'].append({"username": username,"score": request.session['gold']})
-        request.session['scoreboard'].sort(key=lambda user: user['score'], reverse=True)
+        User.objects.create_user(username, int(request.session['gold']))
     return redirect('/')
 def play_again(request):
     session_keys = ['name', 'gold', 'moves', 'activities', 'game']
@@ -50,7 +38,15 @@ def play_again(request):
         request.session.pop(key, None)
     return redirect('/')
 def view_scoreboard(request):
+    update_scoreboard(request)
     return render(request,'scoreboard.html')
 def clear(request):
     request.session.clear()
     return redirect('/')
+
+def update_scoreboard(request):
+    request.session['scoreboard'] = []
+    users = User.objects.all()
+    for user in users:
+        request.session['scoreboard'].append({'username': user.username, 'score': user.score})
+    request.session['scoreboard'].sort(key=lambda user: user['score'], reverse=True)
