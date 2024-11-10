@@ -2,9 +2,10 @@ from django.db import models
 
 class UserManager(models.Manager):
     def create_user(self, username, score):
-        existing_username = User.objects.filter(username=username)
-        if existing_username.exists():
-            existing_username.score = score
+        existing_user = User.objects.filter(username=username).first()
+        if existing_user:
+            existing_user.score = score
+            existing_user.save()
         else:
             return User.objects.create(username=username, score=score)
 
